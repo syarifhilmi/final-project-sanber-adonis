@@ -39,3 +39,13 @@ Route.resource('bookings', 'BookingsController').only(['index', 'show']).apiOnly
 Route.get('/schedules', 'BookingsController.schedules').middleware('auth').as('bookings.schedules')
 Route.put('/bookings/:id/unjoin', 'BookingsController.unjoin').middleware('auth').as('bookings.unjoin')
 Route.put('/bookings/:id/join', 'BookingsController.join').middleware('auth').as('bookings.join')
+
+import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
+
+Route.get('health', async ({ response }) => {
+  const report = await HealthCheck.getReport()
+
+  return report.healthy
+    ? response.ok(report)
+    : response.badRequest(report)
+})
