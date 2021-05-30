@@ -6,7 +6,8 @@
     "node": "16.2.0"
   },
   "scripts": {
-    "build": "node ace build --prod",
+    "build": "npm run compile",
+    "postbuild": "node ace swagger:generate && cp -a docs/ build/docs",
     "start": "node ace serve --watch",
     "start:prod": "node ./build/server.js",
     "dev": "node ace serve --watch",
