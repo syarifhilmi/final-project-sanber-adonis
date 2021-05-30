@@ -2,6 +2,9 @@
   "name": "final-submit-sanber",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "build": "node ace build --prod",
     "start": "node ace serve --watch",
@@ -37,8 +40,5 @@
     "proxy-addr": "^2.0.6",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"
-  },
-  "engines": {
-    "node": "14.16.1"
   }
 }
