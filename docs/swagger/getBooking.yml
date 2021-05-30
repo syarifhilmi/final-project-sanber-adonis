@@ -1,0 +1,10 @@
+/bookings:
+   get:
+     tags:
+       - Booking
+     description: Menampilkan list booking semuanya
+     security: 
+      - bearerAuth: []
+     responses:
+       200:
+         description: Mengambil list booking

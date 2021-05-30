@@ -1,0 +1,16 @@
+/bookings/{id}/unjoin:
+   put:
+     tags:
+       - Booking
+     description: Tidak jadi mengikuti jadwal booking tertentu
+     parameters:
+      - in : path
+        name : id
+        schema:
+          type: integer
+        required: true
+     security: 
+      - bearerAuth: []
+     responses:
+       200:
+         description: Berhasil unjoin

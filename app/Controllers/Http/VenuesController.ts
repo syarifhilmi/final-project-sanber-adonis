@@ -1,5 +1,3 @@
-// import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import { schema } from '@ioc:Adonis/Core/Validator'
 import Database from "@ioc:Adonis/Lucid/Database";
@@ -32,11 +30,14 @@ export default class VenuesController {
         }
     }
 
-    public async show({ response, params }: HttpContextContract) {
+    public async show({ response, params, request }: HttpContextContract) {
         try {
+            let today = new Date()
+            const date = today.getDate()
             const venue = await Database.from('venues').where('venues.id', params.id)
             const field = await Database.from('venues').innerJoin('fields', 'venues.id', '=', 'fields.venues_id').where('venues.id', params.id).select('fields.*')
-            return response.status(200).json({ venue, field: field })
+            const schedule = await Database.from('fields').innerJoin('venues', 'fields.venues_id', '=', 'venues.id').innerJoin('bookings', 'fields.id', '=', 'bookings.fields_id').where('venues.id', params.id).andWhere('bookings.play_start', date).select('bookings.*')
+            return response.status(200).json({ venue, field, schedule })
         }
         catch (error) {
             return response.badRequest({ message: error.message })

@@ -1,0 +1,10 @@
+/venues:
+   get:
+     tags:
+       - Venue
+     description: List semua venue/tempat booking olahraga
+     security: 
+      - bearerAuth: []
+     responses:
+       200:
+         description: Mengambil list venue

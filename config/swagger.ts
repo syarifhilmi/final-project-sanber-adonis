@@ -12,9 +12,17 @@ export default {
 		definition: {
 			openapi: '3.0.0',
 			info: {
-				title: 'Application with swagger docs',
+				title: 'Endpoint Aplikasi Main Bersama',
 				version: '1.0.0',
-				description: 'My application with swagger docs'
+				description: 'Dokumnetasi Endpoint Rest API'
+			},
+			components: {
+				securitySchemes: {
+					bearerAuth: {
+						type: 'http',
+						scheme: 'bearer'
+					}
+				}
 			}
 		},
 
@@ -26,5 +34,5 @@ export default {
 		basePath: '/'
 	},
 	mode: process.env.NODE_ENV === 'production' ? 'PRODUCTION' : 'RUNTIME',
-  specFilePath: 'docs/swagger.json'
+	specFilePath: 'docs/swagger.json'
 } as SwaggerConfig

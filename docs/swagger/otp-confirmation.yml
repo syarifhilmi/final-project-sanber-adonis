@@ -1,0 +1,22 @@
+/otp-confirmation:
+   post:
+     tags:
+       - Auth
+     description: Konfirmasi OTP
+     requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:    
+                  type: string
+                otp_code:
+                  type: string
+              required:
+                - email
+                - otp_code
+     responses:
+       200:
+         description: Konfirmasi berhasil

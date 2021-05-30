@@ -1,0 +1,16 @@
+/bookings/{id}:
+   get:
+     tags:
+       - Booking
+     description: Menampilkan detail booking dengan id tertentu beseta list pemain yang sudah mendaftar.
+     parameters:
+      - in : path
+        name : id
+        schema:
+          type: integer
+        required: true
+     security: 
+      - bearerAuth: []
+     responses:
+       200:
+         description: Mengambil list venue berdasarkan id

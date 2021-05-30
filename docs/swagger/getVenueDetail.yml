@@ -1,0 +1,16 @@
+/venues/{id}:
+   get:
+     tags:
+       - Venue
+     description: List semua venue/tempat booking olahraga berdasarkan id dan schedule hari ini (Method GET tidak bisa membawa request body, sehingga tidak bisa input date)
+     parameters:
+      - in : path
+        name : id
+        schema:
+          type: integer
+        required: true
+     security: 
+      - bearerAuth: []
+     responses:
+       200:
+         description: Mengambil list venue berdasarkan id

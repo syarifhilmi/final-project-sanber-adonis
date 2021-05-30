@@ -1,0 +1,16 @@
+/bookings/{id}/join:
+   put:
+     tags:
+       - Booking
+     description: Mendaftarkan diri untuk jadwal booking tertentu
+     parameters:
+      - in : path
+        name : id
+        schema:
+          type: integer
+        required: true
+     security: 
+      - bearerAuth: []
+     responses:
+       200:
+         description: Berhasil join

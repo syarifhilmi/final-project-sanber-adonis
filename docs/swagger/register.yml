@@ -1,0 +1,28 @@
+/register:
+   post:
+     tags:
+       - Auth
+     description: Melakukan pendaftaran user baru dengan memasukan data name, email, dan password. Aplikasi mengirimkan kode OTP ke email user pendaftar.
+     requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:         
+                  type: string
+                email:    
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+              required:
+                - name
+                - email
+                - password
+                - role
+     responses:
+       200:
+         description: Register berhasil
