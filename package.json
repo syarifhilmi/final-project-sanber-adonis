@@ -6,13 +6,13 @@
     "node": "16.2.0"
   },
   "scripts": {
-    "build": "npm run compile",
-    "postbuild": "node ace swagger:generate && cp -a docs/ build/docs",
+    "build": "node ace build --prod",
     "start": "node ace serve --watch",
     "start:prod": "node ./build/server.js",
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postbuild": "node ace swagger:generate && cp -a docs/ build/docs"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.3.0",
