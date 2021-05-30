@@ -30,7 +30,7 @@ export default class VenuesController {
         }
     }
 
-    public async show({ response, params, request }: HttpContextContract) {
+    public async show({ response, params }: HttpContextContract) {
         try {
             let today = new Date()
             const date = today.getDate()
